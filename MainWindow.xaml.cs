@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿
+using CurrencyCalculator.ApiServices;
+using CurrencyCalculator.CurriencesLists;
+using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +23,18 @@ namespace CurrencyCalculator
 		public MainWindow()
 		{
 			InitializeComponent();
+			FromList.ItemsSource = CurriencesLists.CurriencesLists.from;
+			ToList.ItemsSource = CurriencesLists.CurriencesLists.to;
+			
+			
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			ApiService service = new ApiService();
+			var output = service.GetExchangeRate(FromList.SelectedItem.ToString(), ToList.SelectedItem.ToString());
+			MessageBox.Show(output.ToString(),"wynik",MessageBoxButton.OK);
+
 		}
 	}
 }

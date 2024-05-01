@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <Label HorizontalAlignment="Center" FontSize="20">Wybierz walute z której chcesz przeliczyć</Label>
+            <ListBox Height="40" Name="FromList"></ListBox>
+            <Label HorizontalAlignment="Center" FontSize="20">Wybierz walute na którą chcesz przeliczyć</Label>
+            <ListView Height="40" Name="ToList"></ListView>
+            <Label HorizontalAlignment="Center" FontSize="20">Wpisz kwotę</Label>
+            <TextBox Name="Amount" Height="40" Width="100"></TextBox>
+            <Button Height="50" Width="70" Content="Przelicz" Click="Button_Click"></Button>
+            
+        </StackPanel>
 
     </Grid>
 </Window>
